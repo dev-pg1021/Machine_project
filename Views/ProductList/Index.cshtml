@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Machine_proj.Models.ProductList>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+@foreach (var item in Model)
+{
+    using (Html.BeginForm("Index", "ProductList", FormMethod.Post))
+    {
+        @Html.DropDownListFor(model => item.CategoryName, (SelectList)ViewBag.Categories, "-Select Category-")
+
+        <button type="submit">Submit</button>
+    }
+}
